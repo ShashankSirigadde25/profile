@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            width: 96rem;
+            scroll-behavior: smooth;
+            user-select: none;
+        }
+
+        * {
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+            background: linear-gradient(to right, rgb(21, 21, 54), rgb(8, 24, 69), rgb(21, 21, 54));
+        }
+
+        /* ------------Navigation section------------ */
+        .navbar {
+            height: 5rem;
+            width: 96rem;
+            display: flex;
+            align-items: center;
+            background: rgb(3, 3, 17);
+            position: fixed;
+            z-index: 10;
+        }
+
+        #left {
+            width: 25rem;
+            font-size: 50px;
+            margin: 0 7rem;
+            /* color: rgb(0, 183, 255); */
+        }
+
+        #right {
+            margin: auto;
+            flex-shrink: 1;
+        }
+
+        #right a {
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            padding: 4px;
+            margin: 22px;
+        }
+
+        /* ------------Project section------------ */
+        #Home {
+            width: 96rem;
+            height: 46.5rem;
+            width: 96rem;
+            background: rgb(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        #homebox {
+            width: 80%;
+            display: flex;
+            position: relative;
+            left: 9%;
+            top: 5%;
+            /* border: 1px solid rgba(13, 144, 214); */
+            border-radius: 15px;
+            box-shadow: 5px 6px 25px rgb(38, 103, 141);
+        }
+
+
+        #hleft {
+            height: 33.5rem;
+            width: 50em;
+            display: grid;
+            justify-content: center;
+            position: relative;
+            left: 4rem;
+        }
+
+        #hleft p {
+            width: 30rem;
+            font-size: 60px;
+            position: relative;
+            top: 60px;
+            margin: auto;
+
+        }
+
+        #hleft a {
+            height: 1rem;
+            width: 5.5rem;
+            font-size: 15px;
+            text-decoration: none;
+            background-color: rgb(69, 46, 96);
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            transition: 0.2s;
+        }
+
+        #hleft a:hover {
+            transform: scale(1.08);
+        }
+
+        #hright {
+            width: 50rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(0, 0, 0, 0);
+        }
+
+        #hright img {
+            height: 320px;
+            border: 2px solid black;
+            border-radius: 40px;
+        }
+
+        #hright h2 {
+            font-size: 2.5rem;
+            /* background: rgba(166, 162, 162, 0); */
+        }
+
+        /* ------------About section------------ */
+        #about {
+            height: 46.5rem;
+            width: 96rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            background: rgb(0, 0, 0, 0.5);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .aleft {
+            flex-basis: 35%;
+            /* width: 46rem; */
+        }
+
+        .aleft img {
+            height: 600px;
+            width: 100%;
+            border-radius: 15px;
+            opacity: 0.9;
+        }
+
+        .aright {
+            flex-basis: 50%;
+            /* width: 48rem; */
+        }
+
+        .aright h1 {
+            font-size: 2.5rem;
+            display: grid;
+            /* margin-top: 5rem; */
+        }
+
+        .aright p {
+            font-size: 24px;
+            /* text-indent: 50px; */
+            margin-top: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .aright .info {
+            display: flex;
+            font-size: 20px;
+            margin: 20px 0 40px;
+        }
+
+        .info .tablinks {
+            font-size: 25px;
+            margin-right: 50px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tablinks::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: blueviolet;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tablinks.active-link::after {
+            width: 50%;
+        }
+
+        .tabcontents ul li {
+            /* list-style: none; */
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .tabcontents ul li span {
+            color: rgb(155, 89, 216);
+            font-size: 20px;
+        }
+
+        .tabcontents {
+            display: none;
+        }
+
+        .tabcontents.active-tabs {
+            display: block;
+
+        }
+
+        /* ------------Project section------------ */
+        #projects {
+            height: 46.5rem;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            background: rgb(0, 0, 0, 0.5);
+
+        }
+
+        .prheading {
+            display: grid;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin-top: 5rem;
+            margin-bottom: 10px;
+        }
+
+        #hrline {
+            height: 1px;
+            width: 66.7%;
+            display: grid;
+            justify-content: center;
+            background-color: #fff;
+            margin: 0px 20px;
+            position: relative;
+            left: 175px;
+        }
+
+        .vrline {
+            display: flex;
+            justify-content: center;
+            /* margin-left: 50px; */
+        }
+
+        #vline {
+            width: 1px;
+            height: 60px;
+            background-color: #fff;
+            position: relative;
+            bottom: 2px;
+            margin: 0 195px;
+        }
+
+        #projects .projecttag1 h1 {
+            font-size: 1.5rem;
+            /* color: #000; */
+        }
+
+        #project_boxes {
+            display: flex;
+            justify-content: center;
+        }
+
+        .projecttag1 {
+            width: 18rem;
+            height: 25rem;
+            display: grid;
+            justify-content: center;
+            border-radius: 15px;
+            cursor: pointer;
+            background: rgb(135, 206, 235, 0.5);
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+            margin: 0px 50px 120px 50px;
+            transition: 0.2s;
+        }
+
+        .projecttag1 button {
+            height: 25rem;
+            width: 18rem;
+            background: rgb(0, 0, 0, 0);
+            border-radius: 15px;
+        }
+
+        .projecttag1:hover {
+            transform: scale(1.08);
+        }
+
+        .projecttag1 img {
+            height: 160px;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .projecttag1 p {
+            margin-top: 5px;
+            justify-content: center;
+            /* color: black; */
+        }
+
+        footer {
+            height: 50px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgb(45, 46, 67);
+        }
+        #Anyqueries p span{
+            position: relative;
+            right: 2rem;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div id="left"><span style="font-style: italic;background:rgba(0, 0, 0, 0); ;">my</span>Portfolio</div>
+                <div id="right">
+                    <a href="#Home">Home</a>
+                    <a href="#about">About</a>
+                    <!-- <a href="#about">Education</a> -->
+                    <a href="#projects">Projects</a>
+                    <!-- <a href="#certifications">Certifications</a> -->
+                    <a href="#Anyqueries">Contact Me</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <body>
+        <section id="Home">
+            <div id="homebox">
+                <div id="hleft">
+                    <p>Hello,<br>Welcome to my Portfolio </p>
+                    <a href="/Sirigadde_Shashank_Resume.pdf" target="main">For more info</a>
+                </div>
+                <div id="hright">
+                    <img src="images/profile1.jpg" alt="profilepic">
+                    <h2>S.Shashank</h2>
+                </div>
+            </div>
+
+        </section>
+        <section id="about">
+            <div class="aleft">
+                <img src="images/profile.jpg" alt="sect2pic">
+            </div>
+            <div class="aright">
+                <h1>About Me</h1>
+                <p>Motivated and dedicated student seeking an opportunity to apply academic knowledge
+                    and develop practical skills professionally. Looking for a role in a dynamic organization where
+                    I can contribute to the team, gain valuable experience, and support company objectives. </p>
+
+                <div class="info">
+                    <p class="tablinks active-link" onclick="opentab(event,'Education')">Education </p>
+                    <p class="tablinks" onclick="opentab(event,'Skills')">Skills</p>
+                    <p class="tablinks" onclick="opentab(event,'Certifications')">Certifications</p>
+                </div>
+                <div class="tabcontents active-tabs" id="Education">
+                    <ul>
+                        <li><span>Schooling</span><br>Chaitanya Vidyalayam (CGPA: 9.8)</li>
+                        <li><span>Intermediate</span><br>Narayana institutions (Percentage: 96%)</li>
+                        <li><span>B.tech (E.C.E Department)</span><br>Vallurapally Nageshwar Rao Vignana Jyothi
+                            Institute Of Engineering And Technology <br> (CGPA: 8.35)</li>
+                    </ul>
+                </div>
+                <div class="tabcontents" id="Skills">
+                    <ul>
+                        <li><span>Programming & Software Development</span><br>C, C++, Python, Verilog</li>
+                        <li><span>Web Development</span><br>HTML,CSS,JavaScript</li>
+                        <li><span>Data Management & Analysis</span><br>MySQL,MATLAB</li>
+                        <li><span>Electronic Design Automation (EDA)</span><br>Tanner Tools</li>
+                    </ul>
+                </div>
+                <div class="tabcontents" id="Certifications">
+                    <ul>
+                        <li><span>MySQL</span><br>By Scalar</li>
+                        <li><span>Autosar</span><br>By Udemy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div>
+                <h1 class="prheading">projects</h1>
+            </div>
+            <div id="hrline"></div>
+            <div class="vrline">
+                <div id="vline"></div>
+                <div id="vline"></div>
+                <div id="vline"></div>
+            </div>
+            <div id="project_boxes">
+
+                <div class="projecttag1">
+                    <a href="projects/project1.html" target="main">
+                        <button>
+                            <img src="images/p1.jpg" alt="python">
+                            <h1>Music Data Mining <br> Tool</h1>
+                            <p>Developed a Python-based tool to scrape and analyze popular artists and tracks from
+                                JioSaavn
+                                using BeautifulSoup, requests, and pandas, enabling efficient data collection and
+                                analysis
+                                for music trends.</p>
+
+                        </button>
+                    </a>
+                </div>
+                <div class="projecttag1">
+                    <a href="projects/project2.html" target="main">
+                        <button>
+                            <img src="images/p2.jpg" alt="embedded systems">
+                            <h1>Accident detection and alert system</h1>
+                            <p>Designed and implemented a system using GSM and sensor modules to detect vehicle
+                                accidents in
+                                real time and send automated alerts with location details, enhancing emergency response
+                                efficiency.</p>
+                        </button>
+                    </a>
+                </div>
+                <div class="projecttag1">
+                    <a href="projects/project3.html" target="main">
+                        <button>
+                            <img src="images/p3.jpg" alt="matlab">
+                            <h1>Object Diameter Measurement Tool</h1>
+                            <p>Developed a MATLAB-based application to calculate the diameter of round objects in images
+                                using image processing techniques, enhancing precision in object measurement.</p>
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+        <footer id="Anyqueries">
+            <p><span >© Sirigadde Shashank</span> <a href="https://www.linkedin.com/in/sirigadde-shashank-9707b9263/"
+                    target="main">
+                    <img src="images/linkedin.jpg" alt="linkedin"
+                        style="height: 25px;border-radius: 50%;position: relative;top: 6px;"></a> |
+                         <a
+                    href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrhTxDrnKvdPNKTlLDrphltmCqlMmjzqlmJgQVljjNPCwjlpVdBdnkjHtQxMkpmXKhBxtg"
+                    target="main" style="text-decoration: none;">Contact Me</a></p>
+        </footer>
+
+
+        <!-- ------------script---------------- -->
+        <script>
+            var tablinks = document.getElementsByClassName("tablinks");
+            var tabcontents = document.getElementsByClassName("tabcontents");
+
+            function opentab(event, info) {
+                for (tablink of tablinks) {
+                    tablink.classList.remove("active-link")
+                }
+                for (tabcontent of tabcontents) {
+                    tabcontent.classList.remove("active-tabs")
+                }
+                event.currentTarget.classList.add("active-link")
+                document.getElementById(info).classList.add("active-tabs")
+            }
+
+        </script>
+    </body>
+
+</body>
+
+</html>
